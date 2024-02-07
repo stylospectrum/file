@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "file"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+boto3 = "^1.34.35"
+sqlmodel = "^0.0.14"
+pydantic-settings = "^2.1.0"
+grpcio = "^1.60.1"
+grpcio-tools = "^1.60.1"
+psycopg2-binary = "^2.9.9"
+fastapi = "^0.109.2"
+uvicorn = {extras = ["standard"], version = "^0.27.0.post1"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "file.main:start"
