@@ -1,4 +1,5 @@
 import grpc
+import logging
 
 from concurrent import futures
 
@@ -14,5 +15,8 @@ def serve_grpc():
         FileServicer(s3=S3Manager()), server)
     server.add_insecure_port(f"[::]:{settings.SERVICE_URL}")
     server.start()
-    print('gRPC server running...')
+    
+    logging.basicConfig(level=logging.INFO)
+    logging.info("gRPC server running...")
+
     return server

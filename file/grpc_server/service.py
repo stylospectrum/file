@@ -21,6 +21,10 @@ class FileServicer(file_pb2_grpc.FileServiceServicer):
                 session.add(new_file)
                 session.commit()
             else:
+                if str(file.id) == request.id:
+                    return file_pb2.CreateFileResponse(success=True)
+
+
                 self.s3.client.delete_object(Bucket=self.s3.bucket_name,
                                              Key=str(file.id),)
 
